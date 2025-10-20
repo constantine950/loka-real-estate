@@ -17,19 +17,17 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-8">
-          {["Home", "Listings", "Property", "Gallery", "Blog", "Contact"].map(
-            (item) => (
-              <Link
-                key={item}
-                href={`/${
-                  item.toLowerCase() === "home" ? "" : item.toLowerCase()
-                }`}
-                className="text-gray-700 hover:text-teal-600 font-medium transition"
-              >
-                {item}
-              </Link>
-            )
-          )}
+          {["Home", "Listings", "Contact"].map((item) => (
+            <Link
+              key={item}
+              href={`/${
+                item.toLowerCase() === "home" ? "" : item.toLowerCase()
+              }`}
+              className="text-gray-700 hover:text-teal-600 font-medium transition"
+            >
+              {item}
+            </Link>
+          ))}
         </div>
 
         {/* Mobile Menu Button */}
@@ -44,20 +42,18 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-4">
-          {["Home", "Listings", "Property", "Gallery", "Blog", "Contact"].map(
-            (item) => (
-              <Link
-                key={item}
-                href={`/${
-                  item.toLowerCase() === "home" ? "" : item.toLowerCase()
-                }`}
-                className="block text-teal-600 font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {item}
-              </Link>
-            )
-          )}
+          {["Home", "Listings", "Contact"].map((item) => (
+            <Link
+              key={item}
+              href={`/${
+                item.toLowerCase() === "home" ? "" : item.toLowerCase()
+              }`}
+              className="block text-teal-600 font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              {item}
+            </Link>
+          ))}
         </div>
       )}
     </nav>
