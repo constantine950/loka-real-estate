@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
+import Navbar from "./_components/Navbar";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
+  variable: "--font-montserrat",
 });
-
-export const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Loka – Find Your Dream Home",
@@ -19,12 +17,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={`${montserrat.className} antialiased`}>{children}</body>
+    <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
+      <body className="antialiased">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
