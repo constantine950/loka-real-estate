@@ -3,9 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const path = usePathname();
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow z-50">
@@ -23,7 +25,12 @@ const Navbar = () => {
               href={`/${
                 item.toLowerCase() === "home" ? "" : item.toLowerCase()
               }`}
-              className="text-gray-700 hover:text-teal-600 font-medium transition"
+              className={`${
+                path ===
+                `/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`
+                  ? "text-teal-600"
+                  : "text-gray-700"
+              } hover:text-teal-600 font-medium transition`}
             >
               {item}
             </Link>

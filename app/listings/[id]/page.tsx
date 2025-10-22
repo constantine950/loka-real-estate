@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const listings = [
   {
@@ -69,9 +70,12 @@ export default async function ListingDetails({
           {listing.description}
         </p>
 
-        <button className="mt-8 px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-lg font-semibold transition">
+        <Link
+          href={`/contactAgent?property=${encodeURIComponent(listing.title)}`}
+          className="mt-8 inline-block px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-lg font-semibold transition"
+        >
           Contact Agent
-        </button>
+        </Link>
       </div>
     </main>
   );
